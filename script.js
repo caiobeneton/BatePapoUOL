@@ -14,7 +14,7 @@ function nomeAprovado(){
 
 function outroNome(erro){
     const statusCode = erro.response.status;
-    if (statusCode === '400') {
+    if (statusCode === 400) {
         alert('Esse nome já está sendo utilizado, escolha outro')
         entrarSala()
     }
@@ -31,8 +31,8 @@ function pegarDados() {
     const promessa = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
     promessa.then(processarDados);
 }
-//setInterval(pegarDados, 3000)
-pegarDados()
+setInterval(pegarDados, 3000)
+//pegarDados()
 function processarDados(resposta) {
     chat = resposta.data;
     renderizarChat();
