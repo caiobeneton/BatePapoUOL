@@ -82,6 +82,7 @@ function enviarMensagem() {
 
     const promessa = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', novaMensagem);
     promessa.catch(naoEnviado);
+    promessa.then(pegarDados);
 
     mensagem.value = '';
 
